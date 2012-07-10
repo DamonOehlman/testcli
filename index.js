@@ -39,7 +39,7 @@ function blitzExpected(targetPath, callback) {
                                 });
         
         debug('blitzing expected paths', generatedPaths);
-        async.forEach(generatedPaths, validateContents, callback);
+        async.forEach(generatedPaths, rimraf, callback);
     });
 }
     
@@ -56,12 +56,11 @@ function runCommand(targetPath, command, callback) {
 function validateContents(targetPath, callback) {
     debug('validating: ' + targetPath);
     fs.stat(targetPath, function(err, stats) {
+        if (err) return callback(err);
+        
         if (stats.isDirectory()) {
             // read the contents of the directory
             fs.readdir(targetPath, function(err, files) {
-                // join the target path to the files
-                files = 
-
                 async.forEach(
                     (files || []).map(path.join.bind(null, targetPath)),
                     validateContents,
