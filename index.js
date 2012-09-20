@@ -17,7 +17,7 @@ function checkGeneratedPaths(targetPath, callback) {
         async.forEach(expectedPaths, validateContents, callback);
     });
     
-}
+}             
     
 function isExpected(name) {
     // ensure name is lowercase
@@ -45,6 +45,12 @@ function blitzExpected(targetPath, callback) {
     
 function runCommand(targetPath, command, callback) {
     fs.readFile(path.join(targetPath, 'expected-STDOUT'), 'utf8', function(err, expectedContent) {
+        // make the command win32 friendly
+        // TODO: needs test cases
+        if (process.platform == 'win32') {
+            command = 'node ' + command.replace(/\//g, '\\');
+        }
+
         debug('running command: "' + command + '" in dir: ', targetPath);
         exec(command, { cwd: targetPath }, function(err, output) {
             callback(err, output, expectedContent);
@@ -77,7 +83,7 @@ function validateContents(targetPath, callback) {
 
                 // normalize the test files
                 results = results.map(function(buffer) {
-                    return buffer.toString(); // TODO: consider normalizing line endings .replace(/\r\n/g, '\n');
+                    return buffer.toString().replace(/\r\n/g, '\n');
                 });
                 
                 assert.equal(results[0], results[1], 'Actual does not match expected for : ' + targetPath);
