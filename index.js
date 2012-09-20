@@ -74,8 +74,13 @@ function validateContents(targetPath, callback) {
             
             async.map([testTargetFile, targetPath], fs.readFile, function(err, results) {
                 assert.ifError(err, 'Cannot validate expected vs actual for: ' + targetPath);
+
+                // normalize the test files
+                results = results.map(function(buffer) {
+                    return buffer.toString(); // TODO: consider normalizing line endings .replace(/\r\n/g, '\n');
+                });
                 
-                assert.equal(results[0].toString(), results[1].toString(), 'Actual does not match expected for : ' + targetPath);
+                assert.equal(results[0], results[1], 'Actual does not match expected for : ' + targetPath);
                 callback();
             });
         }
