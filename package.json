@@ -1,32 +1,37 @@
 {
   "name": "testcli",
-  "description": "CLI Application Testing Helpers",
-  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "tags": [
-    "cli",
-    "mocha"
-  ],
-  "version": "0.1.1",
-  "engines": {
-    "node": ">= 0.6.x < 0.9.0"
+  "version": "0.0.0",
+  "description": "Command line application testing helpers",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   },
   "dependencies": {
-    "async": "0.1.x",
-    "debug": "*",
-    "rimraf": "2.0.x"
+    "async": "~0.2.10",
+    "debug": "~0.7.4",
+    "rimraf": "~2.2.6"
   },
   "devDependencies": {
-    "mocha": "1.2.x"
+    "mocha": "~1.17.1"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/DamonOehlman/testcli.git"
+    "url": "https://github.com/DamonOehlman/testcli.git"
   },
+  "keywords": [
+    "test",
+    "testing",
+    "cli",
+    "command-line",
+    "mocha"
+  ],
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "http://github.com/DamonOehlman/testcli/issues"
+    "url": "https://github.com/DamonOehlman/testcli/issues"
   },
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --reporter spec"
-  },
-  "contributors": []
+  "homepage": "https://github.com/DamonOehlman/testcli"
 }
