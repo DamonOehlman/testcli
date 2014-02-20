@@ -1,6 +1,6 @@
 {
   "name": "testcli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Command line application testing helpers",
   "main": "index.js",
   "directories": {
