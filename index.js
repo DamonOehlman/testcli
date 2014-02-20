@@ -118,7 +118,9 @@ function validateContents(targetPath, callback) {
       // read the contents of the directory
       fs.readdir(targetPath, function(err, files) {
         async.forEach(
-          (files || []).map(path.join.bind(null, targetPath)),
+          (files || []).map(function(child) {
+            return path.join(targetPath, child);
+          }),
           validateContents,
           callback
         );
