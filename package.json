@@ -15,7 +15,8 @@
     "mocha": "~1.17.1"
   },
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "gendocs": "gendocs > README.md"
   },
   "repository": {
     "type": "git",
