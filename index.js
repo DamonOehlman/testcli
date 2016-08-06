@@ -54,6 +54,7 @@ var fs = require('fs');
 var path = require('path');
 var rimraf = require('rimraf');
 var reExpected = /(\/|\\)expected\-/ig;
+var reLineBreak = /\r?\n/g;
 
 function checkGeneratedPaths(targetPath, callback) {
   debug('checking generated paths matches expected for: ' + targetPath);
@@ -135,7 +136,14 @@ function validateContents(targetPath, callback) {
 
         // normalize the test files
         results = results.map(function(buffer) {
-          return buffer.toString().replace(/\r\n/g, '\n');
+          var lines = buffer.toString().split(reLineBreak);
+
+          // remove any trailing newlines
+          while (lines.slice(0, -1) === '') {
+            lines.pop();
+          }
+
+          return lines.join('\n');
         });
         
         assert.equal(results[0], results[1], 'Actual does not match expected for : ' + targetPath);
