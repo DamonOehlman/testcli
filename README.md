@@ -1,3 +1,4 @@
+
 # TestCLI
 
 This is a small test helper that is designed to be used with
@@ -10,7 +11,7 @@ been written to assist with the process.
 
 [![NPM](https://nodei.co/npm/testcli.png)](https://nodei.co/npm/testcli/)
 
-[![Build Status](https://travis-ci.org/DamonOehlman/testcli.png?branch=master)](https://travis-ci.org/DamonOehlman/testcli)
+[![Build Status](https://api.travis-ci.org/DamonOehlman/testcli.svg?branch=master)](https://travis-ci.org/DamonOehlman/testcli) 
 
 ## Writing Tests
 
@@ -51,7 +52,7 @@ For some samples, have a look in the `test` folder of this repo.
 
 ### MIT
 
-Copyright (c) 2014 Damon Oehlman <damon.oehlman@gmail.com>
+Copyright (c) 2016 Damon Oehlman <damon.oehlman@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
