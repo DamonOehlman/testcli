@@ -2,7 +2,7 @@
 # TestCLI
 
 This is a small test helper that is designed to be used with
-[Mocha](http://visionmedia.github.com/mocha/) and provides the ability to
+[Mocha](http://mochajs.org/) and provides the ability to
 test that a command-line tool (that generally creates files, generates
 output, etc) is behaving as expected.  I've written a few node command-line
 applications and testing them has proven to be tedious, so this tool has
