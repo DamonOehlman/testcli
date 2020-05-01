@@ -9,14 +9,17 @@
   "dependencies": {
     "async": "~2.0.1",
     "debug": "~2.2.0",
-    "rimraf": "~2.5.4"
+    "rimraf": "~2.5.4",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "mocha": "~3.0.1"
   },
   "scripts": {
     "test": "mocha --reporter spec",
-    "gendocs": "gendocs > README.md"
+    "gendocs": "gendocs > README.md",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -34,5 +37,6 @@
   "bugs": {
     "url": "https://github.com/DamonOehlman/testcli/issues"
   },
-  "homepage": "https://github.com/DamonOehlman/testcli"
+  "homepage": "https://github.com/DamonOehlman/testcli",
+  "snyk": true
 }
