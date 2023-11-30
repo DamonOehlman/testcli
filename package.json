@@ -9,7 +9,7 @@
   "dependencies": {
     "async": "~2.0.1",
     "debug": "~2.2.0",
-    "rimraf": "~2.5.4"
+    "rimraf": "~4.0.0"
   },
   "devDependencies": {
     "mocha": "~3.0.1"
